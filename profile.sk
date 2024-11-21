@@ -1,0 +1,68 @@
+command /profile [<player>]:
+    aliases: /stats
+    trigger:
+        set {_arg1} to arg-1
+        if arg-1 is set:
+            set {_group} to group of {_arg1}
+            if {_group} is "default":
+                set {profileprefix::%uuid of {_arg1}%} to "&8[MEMBER] &r%{_arg1}'s displayname%"
+            else if {_group} is "helper":
+                set {profileprefix::%uuid of {_arg1}%} to "<##56EC4D>[HELPER] &r%{_arg1}'s displayname%"
+            else if {_group} is "moderator":
+                set {profileprefix::%uuid of {_arg1}%} to "<##402DBA>[MOD] &r%{_arg1}'s displayname%"
+            else if {_group} is "builder":
+                set {profileprefix::%uuid of {_arg1}%} to "<##5DB3D6>[<##66B6D6>B<##6FB8D6>U<##77BBD6>I<##80BDD6>L<##89C0D6>D<##92C2D6>E<##9AC5D6>R<##A3C7D6>] &r%{_arg1}'s displayname%"
+            else if {_group} is "manager":
+                set {profileprefix::%uuid of {_arg1}%} to "<##920F0F>[MANAGER] &r%{_arg1}'s displayname%"
+            else if {_group} is "owner":
+                set {profileprefix::%uuid of {_arg1}%} to "<##7E2AD2>[<##8C2ABF>O<##9A2AAC>W<##A82A99>N<##B62A86>E<##C42A73>R<##D22A60>] &r%{_arg1}'s displayname%"
+            else if {_group} is "ultimate":
+                set {profileprefix::%uuid of {_arg1}%} to "<##00FFD6>[<##00FFC8>U<##00FFBA>L<##00FFAD>T<##00FF9F>I<##00FF88>M<##00FF68>A<##00FF47>T<##00FF27>E<##00FF07>] &r%{_arg1}'s displayname%"
+            else if {_group} is "champion":
+                set {profileprefix::%uuid of {_arg1}%} to "<##2532E2>[<##3933CF>C<##4D34BD>H<##6035AA>A<##743697>M<##883685>P<##9C3772>I<##AF385F>O<##C3394D>N<##D73A3A>] &r%{_arg1}'s displayname%"
+            else if {_group} is "royal":
+                set {profileprefix::%uuid of {_arg1}%} to "<##EEF105>[<##ECCA2C>R<##EBA254>O<##E97B7B>Y<##E754A2>A<##E62CCA>L<##E405F1>] &r%{_arg1}'s displayname%"
+            else if {_group} is "guardian":
+                set {profileprefix::%uuid of {_arg1}%} to "<##FF0053>[<##FB0066>G<##F70079>U<##F4008C>A<##F0009F>R<##EC00B3>D<##E800C6>I<##E500D9>A<##E100EC>N<##DD00FF>] &r%{_arg1}'s displayname%"
+            else if {_group} is "angel":
+                set {profileprefix::%uuid of {_arg1}%} to "<##D4D4D4>[<##D7D4BC>A<##DAD4A3>N<##DED58B>G<##E1D573>E<##E4D55A>L<##E7D542>] &r%{_arg1}'s displayname%"
+            send " " to player
+            send "%{profileprefix::%uuid of arg-1%}%" to player
+            send " " to player
+            send "&a&lMULTIPLIER ▸&r &a%{player's multiplier::%uuid of {_arg1}%}%" to player
+            send "&b&lMONEY ▸&r &b%{player's bucks::%uuid of {_arg1}%}%" to player
+            send "&c&lKILLS ▸&r &c%{kills::%uuid of {_arg1}%}%" to player
+            send "&6&lBLOCKS BROKEN ▸&r &6%{player's block counter::%uuid of {_arg1}%}%" to player
+            send " " to player
+        else:
+            set {_group} to group of player
+            if {_group} is "default":
+                set {profileprefix::%uuid of player%} to "&8[MEMBER] &r%player's displayname%"
+            else if {_group} is "helper":
+                set {profileprefix::%uuid of player%} to "<##56EC4D>[HELPER] &r%player's displayname%"
+            else if {_group} is "moderator":
+                set {profileprefix::%uuid of player%} to "<##402DBA>[MOD] &r%player's displayname%"
+            else if {_group} is "builder":
+                set {profileprefix::%uuid of player%} to "<##5DB3D6>[<##66B6D6>B<##6FB8D6>U<##77BBD6>I<##80BDD6>L<##89C0D6>D<##92C2D6>E<##9AC5D6>R<##A3C7D6>] &r%player's displayname%"
+            else if {_group} is "manager":
+                set {profileprefix::%uuid of player%} to "<##920F0F>[MANAGER] &r%player's displayname%"
+            else if {_group} is "owner":
+                set {profileprefix::%uuid of player%} to "<##7E2AD2>[<##8C2ABF>O<##9A2AAC>W<##A82A99>N<##B62A86>E<##C42A73>R<##D22A60>] &r%player's displayname%"
+            else if {_group} is "ultimate":
+                set {profileprefix::%uuid of player%} to "<##00FFD6>[<##00FFC8>U<##00FFBA>L<##00FFAD>T<##00FF9F>I<##00FF88>M<##00FF68>A<##00FF47>T<##00FF27>E<##00FF07>] &r%player's displayname%"
+            else if {_group} is "champion":
+                set {profileprefix::%uuid of player%} to "<##2532E2>[<##3933CF>C<##4D34BD>H<##6035AA>A<##743697>M<##883685>P<##9C3772>I<##AF385F>O<##C3394D>N<##D73A3A>] &r%player's displayname%"
+            else if {_group} is "royal":
+                set {profileprefix::%uuid of player%} to "<##EEF105>[<##ECCA2C>R<##EBA254>O<##E97B7B>Y<##E754A2>A<##E62CCA>L<##E405F1>] &r%player's displayname%"
+            else if {_group} is "guardian":
+                set {profileprefix::%uuid of player%} to "<##FF0053>[<##FB0066>G<##F70079>U<##F4008C>A<##F0009F>R<##EC00B3>D<##E800C6>I<##E500D9>A<##E100EC>N<##DD00FF>] &r%player's displayname%"
+            else if {_group} is "angel":
+                set {profileprefix::%uuid of player%} to "<##D4D4D4>[<##D7D4BC>A<##DAD4A3>N<##DED58B>G<##E1D573>E<##E4D55A>L<##E7D542>] &r%player's displayname%"
+            send " " to player
+            send "%{profileprefix::%uuid of player%}%" to player
+            send " " to player
+            send "&a&lMULTIPLIER ▸&r &a%{player's multiplier::%uuid of player%}%" to player
+            send "&b&lMONEY ▸&r &b%{player's bucks::%uuid of player%}%" to player
+            send "&c&lKILLS ▸&r &c%{kills::%uuid of player%}%" to player
+            send "&6&lBLOCKS BROKEN ▸&r &6%{player's block counter::%uuid of player%}%" to player
+            send " " to player
