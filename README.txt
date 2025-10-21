@@ -7,32 +7,27 @@ I will provide zero help towards you or understand how anything works, you will 
 that can guide you how some things work, but that's it, I will not help you with any issues you have with my code.
 
 Everything I make is tested and works on my conditions, if do not ask how to replicate, this is all on you. YOU.
-
-You are the reason you opened this repository, you are the reason why you're still here, you are you, don't be different.
-
 I give full permission to reupload, sell, any code in this repository.
 
-This is all made in skript
+All files are made by me without the use of AI. 
+(I cant believe I have to say this)
 
 
 
-[ PLUGINS + VERSION ]
+[ PLUGIN - VERSION (LINK)]
 
-Skript | 2.12.4
-SkBee
-Skript-GUI
-Skript-Reflect
-Skript-Placeholders - Optional for TAB accessories
+Skript - 2.12.2 (https://www.spigotmc.org/resources/skript.114544/)
+DiSky - 4.26.0 (https://modrinth.com/plugin/disky)
+SkBee - 3.13.1 (https://modrinth.com/plugin/skbee)
+Skript-GUI - 1.3.2 (https://github.com/APickledWalrus/skript-gui)
+Skript-Reflect - 2.6.1 (https://www.spigotmc.org/resources/skript-reflect.82259/)
+Skript-Placeholders - 1.7.0 (https://github.com/APickledWalrus/skript-placeholders) [Optional for TAB accessories]
 
-
-
-[ VERSION ]
-
-1.21.8 (my conditions)
-
-(might work with 1.21.4+)
 
 
 [ PLATFORM ]
 
-PAPER (my conditions)
+PAPER - 1.21.8 Build 60 (my conditions)
+
+
+(might work with 1.21.4+)
