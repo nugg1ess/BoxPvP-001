@@ -1,18 +1,12 @@
 # BoxPvP Template
 
-[ INFORMATION ]
+This is a BoxPvP server template that I may or may not come back and update every so often, with new things I believe fit inside of the category of 'BoxPvP'.
 
-This is a BoxPvP server template I feel like making so I don't need to keep coming back and making new code every time.
-You can take any code or all, everything is free for the taking, enjoy making a server for yourself.
+Inside of this repository will be notations/comments throughout a few skripts that will help you understand how it may work and/or help you configurate it yourself.
+Any attempts at contacting me with the intent of "How does this work?" or "Can you help me with ___" will be met with silence.
 
-I will provide zero help towards you or understand how anything works, you will find comments throughout some skripts
-that can guide you how some things work, but that's it, I will not help you with any issues you have with my code.
-
-Everything I make is tested and works on my conditions, if do not ask how to replicate, this is all on you. YOU.
-I give full permission to reupload, sell, any code in this repository.
-
-All files are made by me without the use of AI. 
-(I cant believe I have to say this)
+You are free to use anything uploaded to this repository, this entails, selling, re-uploading, any code in here.
+All code is made by me (Nugg1ess), without the use of AI assistance.
 
 
 ## Tested Platform
@@ -20,7 +14,6 @@ All files are made by me without the use of AI.
 - PAPER - 1.21.8 Build 60 (my conditions)
 
 (might work with 1.21.4+)
-
 
 
 ## Skript Plugin - Version (Link)
