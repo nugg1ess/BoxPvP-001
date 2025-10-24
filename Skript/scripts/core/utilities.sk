@@ -4,9 +4,15 @@ options:
     c1: <##DA6FEA>
     c2: <##E999F5>
     l: <##DA6FEA>│
+
 on load:
+    set {serverColorLight} to "<#E999F5>"
+    set {serverColorDark} to "<#DA6FEA>"
+    set {serverLine} to "<#DA6FEA>│"
     set {serverPrefix} to "<#DA6FEA>&lT<#DE7AED>&lE<#E284F0>&lM<#E58FF2>&lP<#E999F5>&lL<#E48BF1>&lA<#DF7DEE>&lT<#DA6FEA>&lE"
     set {serverPrefixArrow} to "<#DA6FEA>&lT<#DE7AED>&lE<#E284F0>&lM<#E58FF2>&lP<#E999F5>&lL<#E48BF1>&lA<#DF7DEE>&lT<#DA6FEA>&lE&8 →"
+    set {serverIP} to "template.your.ip"
+    set {serverMiniIP} to small("template.your.ip")
 
 function getPrefix(string:string,arrow:boolean=false) :: string:
     set {_} to (minimessage from "<gradient:#DA6FEA:#E999F5:#DA6FEA><b>%(uppercase {_string})%</b></gradient>")
@@ -14,7 +20,10 @@ function getPrefix(string:string,arrow:boolean=false) :: string:
         return ({_}+"&8 →")
     return {_}
 
-    
+placeholderapi placeholder with prefix "ASkript":
+    if the identifier is "miniName":
+        set the result to small("%player%")
+
 on damage:
     damage type is suffocation
     (y-coord of victim) > (-64)
@@ -26,6 +35,13 @@ on fade:
 on craft:
     cancel event if player is not op
 
+placeholderapi placeholder with prefix "ASkript":
+    if the identifier is "displayName":
+        set the result to displayName(player)
+function displayName(player:player) :: string:
+    if {player::nickname::%({_player}'s uuid)%} is not set:
+        return "%{_player}%"
+    return {player::nickname::%({_player}'s uuid)%}
 
 function getLongTime(time: timespan) :: string:
     set {_time} to "%{_time}%"
@@ -245,6 +261,7 @@ expression %itemtype% with hidden attributes:
 
 function setWorld(loc:location, world:string) :: location:
     return location((x-coord of {_loc}),(y-coord of {_loc}),(z-coord of {_loc}),world {_world})
+
 
 # USELESS FUNCTION DUE TO RECENT SKRIPT FEATURES
 # ONLY USE IF YOU WANT TO USE A LOWER VERSION

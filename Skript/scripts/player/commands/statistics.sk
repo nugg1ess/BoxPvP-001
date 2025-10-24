@@ -18,15 +18,9 @@ function playerStatsGUI(o:player,s:player):
     add "{@l} &fʀᴀɴᴋ: %(formatted hex({_s}'s prefix))%" to (lore of {_head}) # MUST HAVE VAULT INSTALLED AND LUCKPERMS PREFIX SETUP
     add "{@l} &fᴘʟᴀʏᴛɪᴍᴇ: <#F65DCD>⌚<#F68AD9>%getShortTime({data::playtime::%{_}%}*1)%" to (lore of {_head})
     add ("","{@l} ꜱᴛᴀᴛɪꜱᴛɪᴄꜱ") to (lore of {_head})
-    add "{@l} <#44F666>$<#69F685>%regex({data::coins::%{_}%}*1)% &fᴍᴏɴᴇʏ" to (lore of {_head})
-    add "{@l} <#7CDEE7>☀<#98EAF1>%regex({premium::credits::%{_}%}*1)% &fᴄʀᴇᴅɪᴛꜱ" to (lore of {_head})
-    add "{@l} &fʟᴇᴠᴇʟ: <#E99552>★<#F6AB6E>%regex({data::level::%{_}%}*1)%" to (lore of {_head})
-    add "{@l} &fʀᴇʙɪʀᴛʜ: <#D7D7D7>☄<#F1F1F1>%regex({data::rebirth::%{_}%}*1)%" to (lore of {_head})
-    add "{@l} &fᴍɪɴᴇᴅ: <#CFEE61>⛏<#E0F39B>%regex({data::mined::%{_}%}*1)%" to (lore of {_head})
-    add "{@l} &fᴋɪʟʟs <#C62B2B>🗡<#E54B4B>%regex({data::kills::%{_}%}*1)%" to (lore of {_head})
-    add "{@l} &fᴅᴇᴀᴛʜs <#723737>☠<#995252>%regex({data::deaths::%{_}%}*1)%" to (lore of {_head})
-    add "{@l} &fᴍᴏʙs: <#7190E5>⚔%regex({data::mobs::%{_}%}*1)%" to (lore of {_head})
-    add "{@l} &fғɪsʜᴇᴅ: <#38CCE0>🎣<#6DE3F3>%regex({data::fished::%{_}%}*1)%" to (lore of {_head})
+    loop {-economy::*}:
+        set {_eco} to (loop-value)
+        add ("{@l} &f%small(loop-value)% %{-economy::%loop-value%::symbol}%%regex({data::%loop-value%::%{_}%}*1)%") to (lore of {_head})
     add ("","&8→ &fᴜɴᴄʟɪᴄᴋᴀʙʟᴇ") to (lore of {_head})
 
     create gui with dispenser inventory named "&0Statistics &7(&8%small(lowercase (name of {_s}))%&7)":
