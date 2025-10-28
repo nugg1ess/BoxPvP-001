@@ -10,7 +10,6 @@ command /clearchat:
     permission: staff.clearchat
     trigger:
         set {chatFrozen} to true
-        loop 250 times:
-            broadcast ""
+        broadcast repeat("%nl% ",250)
         broadcast "{@pa} &fChat cleared by &e%player%"
         delete {chatFrozen}

@@ -24,10 +24,13 @@ placeholderapi placeholder with prefix "ASkript":
     if the identifier is "miniName":
         set the result to small("%player%")
 
+# This makes /minecraft:kill useless
 on damage:
-    damage type is suffocation
+    victim is a player
+    damage cause is suffocation
     (y-coord of victim) > (-64)
     cancel event
+
 on falling block fall:
     cancel event
 on fade:
@@ -39,9 +42,7 @@ placeholderapi placeholder with prefix "ASkript":
     if the identifier is "displayName":
         set the result to displayName(player)
 function displayName(player:player) :: string:
-    if {player::nickname::%({_player}'s uuid)%} is not set:
-        return "%{_player}%"
-    return {player::nickname::%({_player}'s uuid)%}
+    return ({player::nickname::%({_player}'s uuid)%} ? {_player})
 
 function getLongTime(time: timespan) :: string:
     set {_time} to "%{_time}%"
@@ -90,6 +91,8 @@ function unsmall(text: text) :: text:
     loop {_lower::*}:
         replace {_tiny::%loop-index%} with loop-value in {_text}
     return {_text}
+function makeTextComponent(string:string) :: text component:
+    return (text component from {_string})
 
 
 on command ("/sk reload","/skript reload","/skript:skript reload" or "/skript:sk reload"):
@@ -132,14 +135,24 @@ function line(t:string, i:integer=1) :: string:
     return "%{_t}%&m " repeated {_i} times
 function repeat(t:string, i:integer=1) :: string:
     return "%{_t}%" repeated {_i} times
-function percentLine(p:number, b:number=20) :: string:
+function percentLine(t1:string="&a&m ",t2:string="&8&m ",p:number, b:number=20) :: string:
     set {_1} to floor(({_p} / 100) * {_b})
     set {_2} to {_b} - {_1}
-    set {_a} to "&a&m " repeated {_1} times if {_1} > 0 else ""
-    set {_b} to "&8&m " repeated {_2} times if {_2} > 0 else ""
+    set {_a} to "%{_t1}%" repeated {_1} times if {_1} > 0 else ""
+    set {_b} to "%{_t2}%" repeated {_2} times if {_2} > 0 else ""
     return formatted "%{_a}%%{_b}%"
 
 
+function center(rows:number) :: objects:
+    set {_totalSlots} to ({_rows} * 9)
+    loop (integers from 0 to {_totalSlots} - 1):
+        set {_row} to floor(loop-value / 9)
+        set {_col} to mod(loop-value, 9)
+        ({_row} and {_col}) is not 0
+        {_row} is not ({_rows} - 1)
+        {_col} is not 8
+        add loop-value to {_slots::*}
+    return {_slots::*}
 function border(rows:number, type:text="none") :: objects:
     set {_totalSlots} to ({_rows} * 9)
     if {_type} = "corner":
@@ -155,6 +168,7 @@ function border(rows:number, type:text="none") :: objects:
             add (loop-value * 9) to {_slots::*}
             add ((loop-value * 9) + 8) to {_slots::*}
     return {_slots::*}
+
 function hexChar(c:text) :: number:
     set {_c} to ({_c} in lowercase)
     set {_l::*} to ("0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f") split at ","

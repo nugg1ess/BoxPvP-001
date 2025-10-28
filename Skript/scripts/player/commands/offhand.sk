@@ -7,7 +7,6 @@ options:
 
 command /offhand:
     trigger:
-        set {_offhand} to (player's offhand tool)
         set {_hand} to (player's tool)
-        set (player's tool) to {_offhand}
+        set (player's tool) to (player's offhand tool)
         set (player's offhand tool) to {_hand}
